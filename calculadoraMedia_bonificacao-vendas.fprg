@@ -4,9 +4,9 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="thiac"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2021-05-11 08:59:47 "/>
+        <attribute name="saved" value="2021-05-12 08:38:00 "/>
         <attribute name="created" value="dGhpYWM7TUFOQ08tREVTS1RPUDsyMDIxLTA0LTI3OyIwNjo0OTo1OCAiOzI2NzU="/>
-        <attribute name="edited" value="dGhpYWM7TUFOQ08tREVTS1RPUDsyMDIxLTA1LTExOyIwODo1OTo0NyAiOzU7Mjc4Mg=="/>
+        <attribute name="edited" value="dGhpYWM7TUFOQ08tREVTS1RPUDsyMDIxLTA1LTEyOyIwODozODowMCAiOzc7Mjc3MQ=="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -70,7 +70,39 @@
                     <output expression="&quot;Voc&#234; n&#227;o recebeu o b&#244;nus desse quadrimestre&quot;" newline="True"/>
                 </else>
             </if>
-            <output expression="&quot;Muito obrigado por sua colabora&#231;&#227;o, at&#233; a pr&#243;xima!&quot;" newline="True"/>
+            <output expression="&quot;Deseja calcular quanto precisa em vendas para alcan&#231;ar um b&#244;nus?&quot;" newline="True"/>
+            <declare name="calculobonus" type="Boolean" array="False" size=""/>
+            <input variable="calculobonus"/>
+            <if expression="calculobonus">
+                <then>
+                    <declare name="v50, v75, v90" type="Real" array="False" size=""/>
+                    <assign variable="v50" expression="(janeiro+fevereiro+mar&#231;o+abril)-20000"/>
+                    <assign variable="v75" expression="(janeiro+fevereiro+mar&#231;o+abril)-150000"/>
+                    <assign variable="v90" expression="(janeiro+fevereiro+mar&#231;o+abril)-180000"/>
+                    <if expression="v90&lt;0">
+                        <then>
+                            <if expression="v75&lt;0">
+                                <then>
+                                    <if expression="V50&lt;0">
+                                        <then>
+                                            <output expression="&quot;Voc&#234; est&#225; a R$&quot; &amp;v50 &amp;&quot; em vendas para atingir o b&#244;nus de 10%.&quot;" newline="True"/>
+                                        </then>
+                                        <else/>
+                                    </if>
+                                    <output expression="&quot;Voc&#234; est&#225; a R$&quot; &amp;v75 &amp;&quot; em vendas para atingir o b&#244;nus de 10%.&quot;" newline="True"/>
+                                </then>
+                                <else/>
+                            </if>
+                            <output expression="&quot;Voc&#234; est&#225; a R$&quot; &amp;v90 &amp; &quot; em vendas para atingir o b&#244;nus de 15%.&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;Excelente, voc&#234; j&#225; alcan&#231;ou o b&#244;nus de 15%.&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </then>
+                <else/>
+            </if>
+            <output expression="&quot;Muito obrigado por sua colabora&#231;&#227;o nas vendas, at&#233; a pr&#243;xima!&quot;" newline="True"/>
         </body>
     </function>
 </flowgorithm>

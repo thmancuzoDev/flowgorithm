@@ -6,7 +6,7 @@ programa
 	
 	funcao inicio()
 	{
-		real janeiro,fevereiro,marco,abril,media
+		real janeiro,fevereiro,marco,abril,media,v50,v75,v90
 	//Insere o valor de venda dos meses
 		escreva("Insira o valor de suas vendas registradas em Janeiro.")
 		leia(janeiro)
@@ -16,13 +16,16 @@ programa
 		leia(marco)
 		escreva("Insira o valor de suas vendas registradas em Abril.")
 		leia(abril)
+		v50=(janeiro+fevereiro+marco+abril)-20000
+		v75=(janeiro+fevereiro+marco+abril)-150000
+		v90=(janeiro+fevereiro+marco+abril)-180000
 	//Cálculo da média
 		media=(janeiro+fevereiro+marco+abril)/4
 		escreva("Sua média de vendas no quadrimestre é: " + media)
 		se(media>=9000)
 		{escreva("\n" + "Muito bem! Você receberá a bonificação máxima de 15%!")}
 		senao se(media>=7500) 
-		{escreva("\n" + "Você atingiu o bônus adicional de +5%. Bônus total de 10%")}
+		{escreva("\n" + "Você atingiu a premiação extra no total de 10%")}
 		senao se(media>=5000)
 		{escreva("\n" + "Parabéns você recebeu um bônus de 5% de suas vendas!")}
 		senao
@@ -32,17 +35,38 @@ programa
 		inteiro sim=1
 		leia(sim)
 		se(sim==1)
-	//Simulador de valor conforme porcentagens alcançadas pelo vendedor
-			escreva("\n" + "Digite 1 para ver opção 5%" + "\n" + "Digite 2 para ver opção 10%" + "\n" + "Digite 3 para ver opção 15%" + "\n")
+	//Simulador de valores conforme porcentagens alcançadas pelo vendedor
+			escreva("\n" + "Digite 1 para ver opção 15%" + "\n" + "Digite 2 para ver opção 10%" + "\n" + "Digite 3 para ver opção 5%" + "\n")
 			inteiro bonus
 			leia(bonus)
 			escolha (bonus)
 			{
 			caso 1: 	escreva("\n" + "O valor do bônus de 15% é = " + (media*15)/100) pare
-			caso 2: 	escreva("\n" + "O valor do bônus de 10& é = " + (media*10)/100) pare
+			caso 2: 	escreva("\n" + "O valor do bônus de 10% é = " + (media*10)/100) pare
 			caso 3:	escreva("\n" + "O valor do bônus de 5% é = " + (media*5)/100) pare
 			caso contrario:	escreva("\n" + "Até a próxima!")
 			}
+	//Simulador de valores para alcançar o próximo bônus
+		escreva("\n" + "Digite 1 para visualizar os valores necessários para atingir o próximo bônus ou qualquer outro botão para encerrar o programa.")
+		inteiro ok=1
+		leia(ok)
+		se(ok==1)
+	//Apresenta os valoes para receber o próximo bônus
+			
+			se(v50<0)
+			{escreva("\n" + "Você está a R$" + v50 + " em vendas para atingir o bônus de 5%.")}
+			senao
+			{escreva("\n" + "Excelente, você já alcançou o bônus de 5%.")}
+			
+			se(v75<0)
+			{escreva("\n" + "Você está a R$" + v75 + " em vendas para atingir o bônus de 10%.")}
+			senao
+			{escreva("\n" + "Excelente, você já alcançou o bônus de 10%.")}
+
+			se(v90<0)
+			{escreva("\n" + "Você está a R$" + v90 + " em vendas para atingir o bônus de 15%.")}
+			senao
+			{escreva("\n" + "Excelente, você já alcançou o bônus de 15%.")}			
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -50,7 +74,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1848; 
+ * @POSICAO-CURSOR = 1615; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
