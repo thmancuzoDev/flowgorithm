@@ -4,22 +4,26 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="thiac"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2022-07-28 12:58:01 "/>
+        <attribute name="saved" value="2022-07-28 02:12:04 "/>
         <attribute name="created" value="dGhpYWM7TUFOQ08tREVTS1RPUDsyMDIxLTA0LTI3OyIwNjo0OTo1OCAiOzI2NzU="/>
-        <attribute name="edited" value="dGhpYWM7TUFOQ08tREVTS1RPUDsyMDIyLTA3LTI4OyIxMjo1ODowMSAiOzEwOzI4MjE="/>
+        <attribute name="edited" value="dGhpYWM7TUFOQ08tREVTS1RPUDsyMDIyLTA3LTI4OyIwMjoxMjowNCAiOzEzOzI4MTY="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
         <body>
-            <declare name="janeiro, fevereiro, mar&#231;o, abril, media, b&#244;nus, b&#244;nusextra, b&#244;nusextraordinario" type="Real" array="False" size=""/>
+            <declare name="janeiro" type="Integer" array="False" size=""/>
             <output expression="&quot;Insira o valor de suas vendas registradas em Janeiro.&quot;" newline="True"/>
             <input variable="janeiro"/>
             <output expression="&quot;Insira o valor de suas vendas registradas em Fevereiro.&quot;" newline="True"/>
+            <declare name="fevereiro" type="Integer" array="False" size=""/>
             <input variable="fevereiro"/>
             <output expression="&quot;Insira o valor de suas vendas registradas em Mar&#231;o.&quot;" newline="True"/>
+            <declare name="mar&#231;o" type="Integer" array="False" size=""/>
             <input variable="mar&#231;o"/>
             <output expression="&quot;Insira o valor de suas vendas registradas em Abril.&quot;" newline="True"/>
+            <declare name="abril" type="Integer" array="False" size=""/>
             <input variable="abril"/>
+            <declare name="media" type="Integer" array="False" size=""/>
             <assign variable="media" expression="(janeiro+fevereiro+mar&#231;o+abril)/4"/>
             <output expression="media" newline="True"/>
             <if expression="media&gt;=5000">
@@ -39,8 +43,8 @@
                             <output expression="&quot;Parab&#233;ns voc&#234; recebeu um b&#244;nus de 5% de suas vendas!&quot;" newline="True"/>
                         </else>
                     </if>
-                    <output expression="&quot;Digite 'True' se deseja calcular o valor total do seu b&#244;nus ou digite 'false' para encerrar.&quot;" newline="True"/>
                     <declare name="calculo" type="Boolean" array="False" size=""/>
+                    <output expression="&quot;Digite 'True' se deseja calcular o valor total do seu b&#244;nus ou digite 'false' para encerrar.&quot;" newline="True"/>
                     <input variable="calculo"/>
                     <if expression="calculo">
                         <then>
@@ -48,18 +52,21 @@
                                 <then>
                                     <if expression="media&lt;=7499">
                                         <then>
-                                            <assign variable="b&#244;nus" expression="media*5/100"/>
-                                            <output expression="&quot;Seu b&#244;nus &#233;: &quot; &amp; b&#244;nus" newline="True"/>
+                                            <declare name="bonus" type="Integer" array="False" size=""/>
+                                            <assign variable="bonus" expression="(media/100)*5"/>
+                                            <output expression="&quot;Seu b&#244;nus &#233;: &quot; &amp; bonus" newline="True"/>
                                         </then>
                                         <else>
-                                            <assign variable="b&#244;nusextra" expression="media*10/100"/>
-                                            <output expression="&quot;Seu b&#244;nus &#233;: &quot; &amp; b&#244;nusextra" newline="True"/>
+                                            <declare name="bonusExtra" type="Integer" array="False" size=""/>
+                                            <assign variable="bonusExtra" expression="(media/100)*10"/>
+                                            <output expression="&quot;Seu b&#244;nus &#233;: &quot; &amp; bonusExtra" newline="True"/>
                                         </else>
                                     </if>
                                 </then>
                                 <else>
-                                    <assign variable="b&#244;nusextraordinario" expression="media*15/100"/>
-                                    <output expression="&quot;Seu b&#244;nus &#233;: &quot; &amp; b&#244;nusextraordinario" newline="True"/>
+                                    <declare name="bonusExtraordinario" type="Integer" array="False" size=""/>
+                                    <assign variable="bonusExtraordinario" expression="(media/100)*15"/>
+                                    <output expression="&quot;Seu b&#244;nus &#233;: &quot; &amp; bonusExtraordinario" newline="True"/>
                                 </else>
                             </if>
                         </then>
@@ -75,9 +82,11 @@
             <input variable="calculobonus"/>
             <if expression="calculobonus">
                 <then>
-                    <declare name="v50, v75, v90" type="Real" array="False" size=""/>
+                    <declare name="v50" type="Integer" array="False" size=""/>
                     <assign variable="v50" expression="(janeiro+fevereiro+mar&#231;o+abril)-20000"/>
+                    <declare name="v75" type="Integer" array="False" size=""/>
                     <assign variable="v75" expression="(janeiro+fevereiro+mar&#231;o+abril)-30000"/>
+                    <declare name="v90" type="Integer" array="False" size=""/>
                     <assign variable="v90" expression="(janeiro+fevereiro+mar&#231;o+abril)-36000"/>
                     <if expression="v90&lt;0">
                         <then>
